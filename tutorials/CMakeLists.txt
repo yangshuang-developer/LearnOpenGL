@@ -1,0 +1,3 @@
+ADD_SUBDIRECTORY(hellowindow)
+# propagate menu links up
+SET(CPACK_NSIS_MENU_LINKS ${CPACK_NSIS_MENU_LINKS} PARENT_SCOPE)

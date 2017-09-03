@@ -1,0 +1,10 @@
+#GLAD
+SET(GLAD_HEAD ${CMAKE_CURRENT_SOURCE_DIR}/include/glad/glad.h)
+SET(GLAD_SRC ${CMAKE_CURRENT_SOURCE_DIR}/src/glad.c)
+
+ADD_LIBRARY(glad ${GLAD_HEAD} ${GLAD_SRC})
+SET_TARGET_PROPERTIES(glad PROPERTIES FOLDER "Libs")
+
+TARGET_INCLUDE_DIRECTORIES(glad PUBLIC
+                           "${CMAKE_CURRENT_SOURCE_DIR}/include"
+                           "${CMAKE_CURRENT_SOURCE_DIR}/src")
