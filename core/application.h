@@ -7,25 +7,24 @@
 #include <functional>
 
 namespace core {
-	class application
+	class Application
 	{
 	public:
-		application(std::string name = "LearnOpenGL",int w = 800,int h = 600);
-		virtual ~application();
-		virtual void init();
-		void setFramebufferSizeCallback(std::function<void(int width, int height)> = nullptr);
-		void setProcessInputCallback(std::function<void(int width, int height)> = nullptr);
+		Application(std::string name = "LearnOpenGL",int width = 800,int height = 600);
+		virtual ~Application();
+		void init();
+		virtual void feed();
+		virtual void render();
 	// function 
-	private:
-		struct{
-			std::function<void(GLFWwindow*, int, int)> framebufferSizeCallback;
-			std::function<void(GLFWwindow*)> processInputCallback;
-		} _callbacks;
+	protected:
+		//typedef void(*GLFWframebuffersizefun)(GLFWwindow*, int, int);
+		static void framebufferSizeCallback(GLFWwindow* window, int width, int height);
 
+		virtual void processInput();
 
 	protected:
-		int _w;
-		int _h;
+		int _width;
+		int _height;
 		GLFWwindow* _window;
 		std::string _name;
 	};

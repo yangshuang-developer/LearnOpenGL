@@ -1,7 +1,7 @@
 #include "hellowindow.h"
 
-HelloWindow::HelloWindow(std::string name, int w, int h) :
-	application(name, w, h)
+HelloWindow::HelloWindow(std::string name, int width, int height) :
+	Application(name, width, height)
 {
 }
 

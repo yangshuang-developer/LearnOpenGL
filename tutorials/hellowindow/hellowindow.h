@@ -3,7 +3,7 @@
 
 using namespace core;
 
-class HelloWindow:application{
+class HelloWindow:Application{
 public:
-	HelloWindow(std::string name, int w = 800, int h = 600);
+	HelloWindow(std::string name, int width = 800, int height = 600);
 };
