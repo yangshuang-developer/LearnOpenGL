@@ -1,9 +1,11 @@
 SET(CORE_HEADER_FILES
 	application.h
+	shader.h
 )
 
 SET(CORE_LIBRARY_FILES
 	application.cpp
+	shader.cpp
 )
 
 ADD_LIBRARY(core STATIC ${CORE_HEADER_FILES} ${CORE_LIBRARY_FILES})

@@ -49,8 +49,10 @@ void HelloTriangle::feed()
 	std::string vert = {
 		"#version 330 core\n"
 		"layout (location = 0) in vec3 a_pos;"
+		"out vec4 vertexColor;"
 		"void main(){"
 		"gl_Position = vec4(a_pos,1.0);"
+		"vertexColor = vec4(0.24,0.2,0.6,1.0);"
 		"}"
 	};
 	GLint vertexShader;
@@ -74,10 +76,11 @@ void HelloTriangle::feed()
 	std::string frag = {
 		"#version 330 core\n"
 		//"out vec4 FragColor;"
+		"in vec4 vertexColor;"
 		"void main()"
 		"{"
 		//"FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);"
-		"gl_FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);"
+		"gl_FragColor = vertexColor;"
 		"} "
 	};
 	GLint fragmentShader;
