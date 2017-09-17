@@ -1,5 +1,6 @@
 #include "Application.h"
 
+
 namespace core {
 	Application::Application(std::string name,int width,int height):
 		_name(name),

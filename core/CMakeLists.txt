@@ -1,6 +1,7 @@
 SET(CORE_HEADER_FILES
 	application.h
 	shader.h
+	stb_image.h
 )
 
 SET(CORE_LIBRARY_FILES

@@ -18,21 +18,29 @@ void Shader::load(std::string vertfile, std::string fragfile)
 	//open and parse vertshader from file
 	const char* vertsource = nullptr;
 	const char* fragsource = nullptr;
-	std::ifstream file;
+	std::string vertsrc;
+	std::string fragsrc;
 
+	std::ifstream file;
 	file.exceptions(std::ifstream::badbit | std::ifstream::failbit);
 	try
 	{
 		std::stringstream buff;
 		file.open(vertfile);
 		buff << file.rdbuf();
+		vertsrc = buff.str();
+		vertsource = vertsrc.c_str();
 		file.close();
-		vertsource = buff.str().c_str();
+
+		buff.clear();
+		buff.str("");
 
 		file.open(fragfile);
-		buff.clear();
 		buff << file.rdbuf();
-		fragsource = buff.str().c_str();
+		fragsrc = buff.str();
+		fragsource = fragsrc.c_str();
+		file.close();
+		
 	}
 	catch (const std::ifstream::failure e)
 	{
@@ -58,7 +66,7 @@ void Shader::load(std::string vertfile, std::string fragfile)
 	frag = glCreateShader(GL_FRAGMENT_SHADER);
 	glShaderSource(frag, 1, &fragsource, &status);
 	glCompileShader(frag);
-	glGetShaderiv(vert, GL_COMPILE_STATUS, &status);
+	glGetShaderiv(frag, GL_COMPILE_STATUS, &status);
 	if (!status)
 	{
 		glGetShaderInfoLog(frag, 512, NULL, log);
@@ -71,7 +79,7 @@ void Shader::load(std::string vertfile, std::string fragfile)
 	//link
 	glLinkProgram(_programID);
 
-	glGetProgramiv(vert, GL_LINK_STATUS, &status);
+	glGetProgramiv(_programID, GL_LINK_STATUS, &status);
 	if (!status)
 	{
 		glGetProgramInfoLog(frag, 512, NULL, log);
