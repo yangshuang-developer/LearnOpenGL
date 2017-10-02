@@ -1,5 +1,6 @@
 #include "Application.h"
 
+#define BUFSIZE MAX_PATH
 
 namespace core {
 	Application::Application(std::string name,int width,int height):
@@ -67,5 +68,18 @@ namespace core {
 	void Application::render()
 	{
 		//override
+	}
+	inline std::string Application::getCurrentDirectory()
+	{
+		char buff[BUFSIZE];
+		int dwRet = -1;
+		dwRet = GetCurrentDirectory(BUFSIZE, buff);
+
+		if (dwRet == 0)
+		{
+			printf("GetCurrentDirectory failed (%d)\n", GetLastError());
+			return std::string();
+		}
+		return std::string(buff);
 	}
 }

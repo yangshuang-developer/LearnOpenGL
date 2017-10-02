@@ -1,13 +1,10 @@
 INCLUDE(tutorial)
-ADD_TUTORIAL(textures)
-
-# # add special lib
-# TARGET_LINK_LIBRARIES(textures glm ${ADDITIONAL_LIBRARIES})
+ADD_TUTORIAL(coordinatesystems)
 
 # copy res
 FILE(COPY 
-	../shaders/textures.vert 
-	../shaders/textures.frag 
+	../shaders/coordinatesystems.vert 
+	../shaders/coordinatesystems.frag 
 	DESTINATION 
 	${CMAKE_CURRENT_BINARY_DIR}/
 	)

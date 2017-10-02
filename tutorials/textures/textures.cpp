@@ -1,8 +1,6 @@
 #include "textures.h"
 #include <windows.h> 
 
-#define BUFSIZE MAX_PATH
-
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -14,19 +12,7 @@ core::Textures::Textures(std::string name, int width, int height):
 {
 
 }
-std::string Textures::getCurrentDirectory()
-{
-	char buff[BUFSIZE];
-	int dwRet = -1;
-	dwRet = GetCurrentDirectory(BUFSIZE, buff);
 
-	if (dwRet == 0)
-	{
-		printf("GetCurrentDirectory failed (%d)\n", GetLastError());
-		return std::string();
-	}
-	return std::string(buff);
-}
 
 void core::Textures::feed()
 {

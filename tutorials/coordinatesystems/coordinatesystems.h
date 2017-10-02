@@ -7,14 +7,19 @@
 #include "stb_image.h"
 #include <shader.h>
 
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
+
 namespace core {
-	class Textures :public Application {
+	class Coordinatesystems :public Application {
 	public:
-		Textures(std::string name, int width = 800, int height = 600);
+		Coordinatesystems(std::string name, int width = 800, int height = 600);
 		virtual void feed() override;
 		virtual void render();
 
-		virtual ~Textures() {
+		virtual ~Coordinatesystems() {
 			if (_shader)
 			{
 				delete _shader.release();
@@ -27,6 +32,6 @@ namespace core {
 		std::unique_ptr<Shader> _shader;
 		GLuint _texture0;
 		GLuint _texture1;
-
+		std::vector<glm::vec3> _posList;
 	};
 }
