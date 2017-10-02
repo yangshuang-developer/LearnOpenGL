@@ -1,6 +1,11 @@
 #include "textures.h"
 #include <windows.h> 
+
 #define BUFSIZE MAX_PATH
+
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 using namespace core;
 
@@ -118,11 +123,17 @@ void core::Textures::feed()
 
 	_shader->setUniformal("u_tex0",0);
 	_shader->setUniformal("u_tex1", 1);
-		
+	
 }
 
 void core::Textures::render()
 {
+
+	glm::mat4 trans;
+	trans = glm::translate(trans, glm::vec3(0.5f, 0.0f, 0.0f));
+	trans = glm::rotate(trans, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
+	_shader->setUniformal("u_transform", trans);
+
 	glActiveTexture(GL_TEXTURE0);
 	glBindTexture(GL_TEXTURE_2D, _texture0);
 	glActiveTexture(GL_TEXTURE1);

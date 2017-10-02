@@ -1,2 +1,3 @@
 INCLUDE(tutorial)
 ADD_TUTORIAL(textures)
+TARGET_LINK_LIBRARIES(textures glm ${ADDITIONAL_LIBRARIES})

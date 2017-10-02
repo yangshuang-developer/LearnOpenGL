@@ -20,7 +20,7 @@ SET_PROPERTY(GLOBAL PROPERTY USE_FOLDERS ON)
 #--------------------------------------------------------------------
 # Compiler
 #--------------------------------------------------------------------
-SET(CONFIGURATION_TYPES "Debug;Release;RelWithDebInfo")
+SET(CMAKE_CONFIGURATION_TYPES "Debug;Release")
 
 #--------------------------------------------------------------------
 # Output paths
@@ -30,8 +30,6 @@ SET(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}")
 SET(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_CURRENT_BINARY_DIR}")
 
 # hearder file
-# MARK_AS_ADVANCED(LearnOpenGL_INC)
-# SET(LearnOpenGL_INC ${CMAKE_CURRENT_SOURCE_DIR}/core)
 #--------------------------------------------------------------------
 # Directories to compile
 #--------------------------------------------------------------------
