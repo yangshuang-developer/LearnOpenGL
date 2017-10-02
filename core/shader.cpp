@@ -11,6 +11,7 @@ Shader::Shader(std::string vertfile, std::string fragfile)
 
 Shader::~Shader()
 {
+	glDeleteProgram(_programID);
 }
 
 void Shader::load(std::string vertfile, std::string fragfile)
@@ -50,26 +51,27 @@ void Shader::load(std::string vertfile, std::string fragfile)
 	//compile the shader
 	GLuint vert, frag;
 	int status;
-	char log[512];
+#define LOG_MAX_LEN 512
+	char log[LOG_MAX_LEN];
 
 	//vert shader
 	vert = glCreateShader(GL_VERTEX_SHADER);
-	glShaderSource(vert, 1, &vertsource, &status);
+	glShaderSource(vert, 1, &vertsource, NULL);
 	glCompileShader(vert);
 	glGetShaderiv(vert, GL_COMPILE_STATUS, &status);
 	if (!status)
 	{
-		glGetShaderInfoLog(vert, 512, NULL, log);
+		glGetShaderInfoLog(vert, LOG_MAX_LEN, NULL, log);
 		std::cout << "Error:VertexShader -> compile failed! " << log << std::endl;
 	}
 	//frag shader
 	frag = glCreateShader(GL_FRAGMENT_SHADER);
-	glShaderSource(frag, 1, &fragsource, &status);
+	glShaderSource(frag, 1, &fragsource, NULL);
 	glCompileShader(frag);
 	glGetShaderiv(frag, GL_COMPILE_STATUS, &status);
 	if (!status)
 	{
-		glGetShaderInfoLog(frag, 512, NULL, log);
+		glGetShaderInfoLog(frag, LOG_MAX_LEN, NULL, log);
 		std::cout << "Error:FragmentShader -> compile failed! " << log << std::endl;
 	}
 	_programID = glCreateProgram();
@@ -82,7 +84,7 @@ void Shader::load(std::string vertfile, std::string fragfile)
 	glGetProgramiv(_programID, GL_LINK_STATUS, &status);
 	if (!status)
 	{
-		glGetProgramInfoLog(frag, 512, NULL, log);
+		glGetProgramInfoLog(frag, LOG_MAX_LEN, NULL, log);
 		std::cout << "Error:Program -> link failed! " << log << std::endl;
 	}
 	//clear
