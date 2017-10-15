@@ -63,7 +63,7 @@ namespace core {
 	}
 	void Application::feed()
 	{
-		std::cout << "application feed invoke" << std::endl;
+		//override
 	}
 	void Application::render()
 	{
