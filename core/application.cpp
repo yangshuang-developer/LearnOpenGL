@@ -73,7 +73,7 @@ namespace core {
 	{
 		char buff[BUFSIZE];
 		int dwRet = -1;
-		dwRet = GetCurrentDirectory(BUFSIZE, buff);
+		dwRet = GetCurrentDirectory(BUFSIZE, (LPWSTR)buff);
 
 		if (dwRet == 0)
 		{
