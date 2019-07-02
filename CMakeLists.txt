@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 2.8.12)
 
-project(LearnOpenGL CXX)
+project(LearnOpenGL C CXX)
 
 set(VERSION_MAJOR "1")
 set(VERSION_MINOR "1")
