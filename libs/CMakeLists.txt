@@ -3,10 +3,7 @@
 #GLFW
 ADD_SUBDIRECTORY(glfw)
 
-#GLAD
-ADD_SUBDIRECTORY(glad)
-
-#GLAD
+#GLM
 ADD_SUBDIRECTORY(glm)
 
 # propagate menu links up
