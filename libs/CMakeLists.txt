@@ -1,3 +1,6 @@
+# propagate menu links up
+SET(CPACK_NSIS_MENU_LINKS ${CPACK_NSIS_MENU_LINKS} PARENT_SCOPE)
+
 #config libs
 
 #GLFW
@@ -6,5 +9,5 @@ ADD_SUBDIRECTORY(glfw)
 #GLM
 ADD_SUBDIRECTORY(glm)
 
-# propagate menu links up
-SET(CPACK_NSIS_MENU_LINKS ${CPACK_NSIS_MENU_LINKS} PARENT_SCOPE)
+#GLAD
+ADD_SUBDIRECTORY(glad)

@@ -1,4 +1,4 @@
-#include "Application.h"
+#include "application.h"
 
 #define BUFSIZE MAX_PATH
 
@@ -48,7 +48,6 @@ namespace core {
 			std::cout << "Failed to initialize GLAD" << std::endl;
 			glfwTerminate();
 		}
-
 		glViewport(0, 0, _width, _height);
 		feed();
 		while (!glfwWindowShouldClose(_window))
