@@ -17,7 +17,7 @@ namespace core {
 		inline std::string getCurrentDirectory();
 	// function 
 	protected:
-		//typedef void(*GLFWframebuffersizefun)(GLFWwindow*, int, int);
+
 		static void framebufferSizeCallback(GLFWwindow* window, int width, int height);
 
 		virtual void processInput();
