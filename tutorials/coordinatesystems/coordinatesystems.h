@@ -16,7 +16,7 @@ namespace core {
 	class Coordinatesystems :public Application {
 	public:
 		Coordinatesystems(std::string name, int width = 800, int height = 600);
-		virtual void feed() override;
+		virtual void load() override;
 		virtual void render();
 
 		virtual ~Coordinatesystems() {

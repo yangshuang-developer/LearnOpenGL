@@ -7,7 +7,7 @@ HelloTriangle::HelloTriangle(std::string name, int width, int height) :
 {
 }
 
-void HelloTriangle::feed()
+void HelloTriangle::load()
 {
 	//set up triangle data
 	float vertices[] = {

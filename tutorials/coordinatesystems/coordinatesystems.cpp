@@ -9,7 +9,7 @@ core::Coordinatesystems::Coordinatesystems(std::string name, int width, int heig
 {
 }
 
-void core::Coordinatesystems::feed()
+void core::Coordinatesystems::load()
 {
 	//load image
 	int width, height, nrChannels;

@@ -1,5 +1,5 @@
 #pragma once
-#include <glad/glad.h>
+#include <glad/glad.h> 
 #include <GLFW/glfw3.h>
 
 #include <iostream>
@@ -12,7 +12,7 @@ namespace core {
 		Application(std::string name = "LearnOpenGL",int width = 800,int height = 600);
 		virtual ~Application();
 		void init();
-		virtual void feed();
+		virtual void load();
 		virtual void render();
 		inline std::string getCurrentDirectory();
 	// function 

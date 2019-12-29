@@ -14,7 +14,7 @@ core::Textures::Textures(std::string name, int width, int height):
 }
 
 
-void core::Textures::feed()
+void core::Textures::load()
 {
 	//load image
 	int width, height, nrChannels;

@@ -11,7 +11,7 @@ namespace core {
 	class Textures :public Application {
 	public:
 		Textures(std::string name, int width = 800, int height = 600);
-		virtual void feed() override;
+		virtual void load() override;
 		virtual void render();
 
 		virtual ~Textures() {

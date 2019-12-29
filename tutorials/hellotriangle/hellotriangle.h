@@ -5,7 +5,7 @@ namespace core {
 	class HelloTriangle :public Application {
 	public:
 		HelloTriangle(std::string name, int width = 800, int height = 600);
-		virtual void feed() override;
+		virtual void load() override;
 		virtual void render();
 
 	protected:

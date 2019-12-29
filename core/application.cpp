@@ -1,7 +1,5 @@
 #include "application.h"
 
-#define BUFSIZE MAX_PATH
-
 namespace core {
 	Application::Application(std::string name,int width,int height):
 		_name(name),
@@ -43,13 +41,15 @@ namespace core {
 		glfwMakeContextCurrent(_window);
 		
 		glfwSetFramebufferSizeCallback(_window,framebufferSizeCallback);
+
 		if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
 		{
 			std::cout << "Failed to initialize GLAD" << std::endl;
 			glfwTerminate();
 		}
+
 		glViewport(0, 0, _width, _height);
-		feed();
+		load();
 		while (!glfwWindowShouldClose(_window))
 		{
 			glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
@@ -60,7 +60,7 @@ namespace core {
 			glfwPollEvents();
 		}
 	}
-	void Application::feed()
+	void Application::load()
 	{
 		//override
 	}
@@ -70,15 +70,16 @@ namespace core {
 	}
 	inline std::string Application::getCurrentDirectory()
 	{
-		char buff[BUFSIZE];
-		int dwRet = -1;
-		dwRet = GetCurrentDirectory(BUFSIZE, (LPSTR)buff);
+		//char buff[255];
+		//int dwRet = -1;
+		//dwRet = GetCurrentDirectoryA(BUFSIZE, (LPSTR)buff);
 
-		if (dwRet == 0)
-		{
-			printf("GetCurrentDirectory failed (%d)\n", GetLastError());
-			return std::string();
-		}
-		return std::string(buff);
+		//if (dwRet == 0)
+		//{
+		//	printf("GetCurrentDirectory failed (%d)\n", GetLastError());
+		//	return std::string();
+		//}
+		//return std::string(buff);
+		return "";
 	}
 }
